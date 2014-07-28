@@ -64,7 +64,7 @@ object AllPreferences {
     PreserveSpaceBeforeArguments, AlignParameters, DoubleIndentClassDeclaration, FormatXml, IndentPackageBlocks,
     AlignSingleLineCaseStatements, AlignSingleLineCaseStatements.MaxArrowIndent, IndentLocalDefs, PreserveDanglingCloseParenthesis,
     SpaceInsideParentheses, SpaceInsideBrackets, SpacesWithinPatternBinders, MultilineScaladocCommentsStartOnFirstLine, IndentWithTabs,
-    CompactControlReadability, PlaceScaladocAsterisksBeneathSecondAsterisk)
+    CompactControlReadability, PlaceScaladocAsterisksBeneathSecondAsterisk, MandatorySpaceWithinBraces)
 
   val preferencesByKey: Map[String, PreferenceDescriptor[_]] = {
     var map: Map[String, PreferenceDescriptor[_]] = Map()
@@ -73,6 +73,12 @@ object AllPreferences {
     map
   }
 
+}
+
+case object MandatorySpaceWithinBraces extends BooleanPreferenceDescriptor {
+  val key = "mandatorySpaceWithinBraces"
+  val description = "Should there be mandatory white space within braces"
+  val defaultValue = true
 }
 
 case object RewriteArrowSymbols extends BooleanPreferenceDescriptor {

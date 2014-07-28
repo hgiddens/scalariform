@@ -368,6 +368,8 @@ abstract class ScalaFormatter extends HasFormattingPreferences with TypeFormatte
       return CompactEnsuringGap
     if (type1.isId && type2.isLiteral)
       return CompactEnsuringGap
+    if (formattingPreferences(MandatorySpaceWithinBraces) && (type1 == LBRACE || type2 == RBRACE))
+      return CompactEnsuringGap
     if (ENSURE_SPACE_AFTER(type1))
       return CompactEnsuringGap
     if (ENSURE_SPACE_BEFORE(type2))
@@ -427,7 +429,7 @@ object ScalaFormatter {
     THROW, TRAIT, TRY, /* TYPE ,*/
     VAL, VAR, WHILE, WITH, YIELD, 
     /* USCORE, */ COLON, EQUALS, ARROW, LARROW, SUBTYPE, VIEWBOUND, SUPERTYPE, /* HASH, AT */
-    LBRACE, SEMI)
+    SEMI)
 
   val ENSURE_SPACE_BEFORE = Set(
     ABSTRACT, CASE, CATCH, CLASS, DEF, 
@@ -438,8 +440,7 @@ object ScalaFormatter {
     /* RETURN, */ SEALED, /* SUPER, THIS, */
     /* THROW, */ TRAIT, /* TRY, TYPE, */
     VAL, VAR, /* WHILE, */ WITH, YIELD, 
-    /* USCORE, COLON, */ EQUALS, /* ARROW, */ LARROW, SUBTYPE, VIEWBOUND, SUPERTYPE, /*, HASH, AT, */
-    RBRACE)
+    /* USCORE, COLON, */ EQUALS, /* ARROW, */ LARROW, SUBTYPE, VIEWBOUND, SUPERTYPE) /*, HASH, AT, */
   // format: ON
 
   @throws(classOf[ScalaParserException])

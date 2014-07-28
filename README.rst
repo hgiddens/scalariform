@@ -334,6 +334,21 @@ moment, ``alignSingleLineCaseStatements`` and ``alignParameters``
 options are not supported when indenting with tabs, and XML
 indentation is handled differently.
 
+mandatorySpaceWithinBraces
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Default: ``true``
+
+If ``true``, left brace characters will be compacted with white space
+following and right brace characters will be compacted with white space
+preceeding::
+
+  import a.b.{ c, d, e }
+
+If false, this space will not necessarily be inserted::
+
+  import a.b.{c, d, e}
+
 multilineScaladocCommentsStartOnFirstLine
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
